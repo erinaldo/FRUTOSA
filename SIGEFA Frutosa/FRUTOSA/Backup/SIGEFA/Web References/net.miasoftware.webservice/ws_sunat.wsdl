@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservice.miasoftware.net/service/sunat/ws_sunat.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://webservice.miasoftware.net/service/sunat/ws_sunat.php?wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://webservice.miasoftware.net/service/sunat/ws_sunat.php?wsdl">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultaRUCRequest">
+    <wsdl:part name="ruc" type="xsd:string" />
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="tracking" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultaRUCResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultaANEXORequest">
+    <wsdl:part name="ruc" type="xsd:string" />
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="hash" type="xsd:string" />
+    <wsdl:part name="tracking" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultaANEXOResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceConsultaRUCPortType">
+    <wsdl:operation name="consultaRUC">
+      <wsdl:input message="tns:consultaRUCRequest" />
+      <wsdl:output message="tns:consultaRUCResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consultaANEXO">
+      <wsdl:input message="tns:consultaANEXORequest" />
+      <wsdl:output message="tns:consultaANEXOResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceConsultaRUCBinding" type="tns:ServiceConsultaRUCPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="consultaRUC">
+      <soap:operation soapAction="http://webservice.miasoftware.net/service/sunat/ws_sunat.php/consultaRUC" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://webservice.miasoftware.net/service/sunat/ws_sunat.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://webservice.miasoftware.net/service/sunat/ws_sunat.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultaANEXO">
+      <soap:operation soapAction="http://webservice.miasoftware.net/service/sunat/ws_sunat.php/consultaANEXO" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://webservice.miasoftware.net/service/sunat/ws_sunat.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://webservice.miasoftware.net/service/sunat/ws_sunat.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceConsultaRUC">
+    <wsdl:port name="ServiceConsultaRUCPort" binding="tns:ServiceConsultaRUCBinding">
+      <soap:address location="http://webservice.miasoftware.net/service/sunat/ws_sunat.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
